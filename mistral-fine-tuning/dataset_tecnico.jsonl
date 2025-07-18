@@ -1,0 +1,28 @@
+import json
+
+# Dataset convertito in formato JSONL per fine-tuning
+dataset = [
+    {"input": "Come si definisce una funzione in JavaScript?", "output": "In JavaScript puoi definire una funzione in diversi modi. Esempio classico:\nfunction saluta() {\n  console.log('Ciao!');\n}\nOppure con arrow function:\nconst saluta = () => {\n  console.log('Ciao!');\n};"},
+    {"input": "Cosa sono le Promise in JavaScript?", "output": "Le Promise sono oggetti che rappresentano il completamento (o fallimento) futuro di un'operazione asincrona. Esempio:\nconst promessa = new Promise((resolve, reject) => {\n  setTimeout(() => resolve('Fatto!'), 1000);\n});"},
+    {"input": "Come funziona async/await in JavaScript?", "output": "async/await permette di scrivere codice asincrono in modo sincrono. Esempio:\nasync function esempio() {\n  const dati = await fetch('url');\n  const json = await dati.json();\n  console.log(json);\n}"},
+    {"input": "Come si definisce una funzione in Python?", "output": "In Python si usa la parola chiave 'def'. Esempio:\ndef saluta():\n    print('Ciao!')"},
+    {"input": "Cosa sono le list comprehension in Python?", "output": "Le list comprehension permettono di creare liste in modo conciso. Esempio:\nquadrati = [x**2 for x in range(10)]"},
+    {"input": "Come si gestiscono le eccezioni in Python?", "output": "Si usano blocchi try/except. Esempio:\ntry:\n    x = 1 / 0\nexcept ZeroDivisionError:\n    print('Errore: divisione per zero')"},
+    {"input": "Come si definisce una funzione in PHP?", "output": "In PHP si usa la parola chiave 'function'. Esempio:\nfunction saluta() {\n  echo 'Ciao!';\n}"},
+    {"input": "Come si connette a un database MySQL in PHP?", "output": "Puoi usare PDO. Esempio:\n$pdo = new PDO('mysql:host=localhost;dbname=test', 'user', 'pass');"},
+    {"input": "Come si crea un array associativo in PHP?", "output": "$persona = array('nome' => 'Mario', 'eta' => 30);"},
+    {"input": "Come si centra un elemento orizzontalmente in CSS?", "output": "Puoi usare 'margin: 0 auto' su un blocco con larghezza definita. Esempio:\ndiv {\n  width: 200px;\n  margin: 0 auto;\n}"},
+    {"input": "Come si crea un layout flessibile in CSS?", "output": "Usa Flexbox. Esempio:\n.container {\n  display: flex;\n  justify-content: space-between;\n}"},
+    {"input": "Come si applica padding in Tailwind?", "output": "Usa classi come 'p-4' per padding generale o 'pt-2' per padding top."},
+    {"input": "Come si centra un elemento in Tailwind?", "output": "Puoi usare 'flex justify-center items-center' su un contenitore con altezza piena. Esempio:\n<div class=\"flex justify-center items-center h-screen\">...</div>"},
+    {"input": "Come si applica un bordo arrotondato in Tailwind?", "output": "Usa classi come 'rounded', 'rounded-lg', o 'rounded-full' per bordi più o meno curvi."}
+]
+
+#salvataggio in formato JSONL
+jsonl_path = "/mnt/data/dataset_tecnico.jsonl"
+with open(jsonl_path, "w", encoding="utf-8") as f:
+    for item in dataset:
+        json.dump(item, f, ensure_ascii=False)
+        f.write("\n")
+
+jsonl_path

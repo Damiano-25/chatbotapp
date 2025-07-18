@@ -1,0 +1,26 @@
+# config.yaml
+base_model: mistralai/Mistral-7B-Instruct-v0.1
+load_in_8bit: true
+
+datasets:
+  - path: dataset_tecnico.jsonl
+    type: alpaca
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  target_modules: all
+
+output_dir: ./output
+sequence_len: 2048
+sample_packing: false
+eval_sample_packing: false
+
+train:
+  batch_size: 1
+  epochs: 3
+  eval_steps: 0
+  logging_steps: 10
+  save_steps: 50
+  learning_rate: 2.0e-4
