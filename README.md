@@ -6,7 +6,7 @@ First, run the development server:
 
 ```terminale vscode
 - cd nome cartella
- npm init -y
+- npm init -y
 - npm run dev
 ```
 
