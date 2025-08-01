@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+```terminale vscode
+- cd nome cartella
+ npm init -y
+- npm run dev
+```
+
 ```bash
 npm run dev
 # or
